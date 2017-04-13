@@ -10,8 +10,10 @@ namespace WebApplication2.Models
         public int PostId { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public DateTime? PostDate { get; set; }
 
         public int BlogId { get; set; }
+        public string newColumn { get; set; }
         public virtual Blog Blog { get; set; }
     }
 }

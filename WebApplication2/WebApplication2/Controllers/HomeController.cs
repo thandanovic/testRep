@@ -14,7 +14,7 @@ namespace WebApplication2.Controllers
         public ActionResult Index()
         {
             BloggingContext db = new BloggingContext();
-            db.InitDB();
+            
             var query = from b in db.Blogs
                         orderby b.Name
                         select b;
@@ -23,9 +23,10 @@ namespace WebApplication2.Controllers
             BlogViewModel viewModel = new BlogViewModel();
             foreach (var item in query)
             {
-                Mapper.Map(item, viewModel);
+                
                 Console.WriteLine(item.Name);
             }
+            Mapper.Map(query.FirstOrDefault(), viewModel);
             return View();
         }
 
